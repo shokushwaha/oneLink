@@ -2,13 +2,10 @@
 import { MongoClient } from "mongodb"
 
 if (!process.env.NEXT_PUBLIC_MONGO_URI) {
-    console.log(NEXT_PUBLIC_MONGO_URI)
     throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
 }
 
 const uri = process.env.NEXT_PUBLIC_MONGO_URI
-// const uri = "mongodb+srv://kushwahashobhit255:aDA9s5EHe0CwW9Pm@linktree.wq1crwb.mongodb.net/?retryWrites=true&w=majority"
-// const uri = "mongodb://localhost:27017/linklist"
 const options = {}
 
 let client

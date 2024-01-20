@@ -44,10 +44,19 @@ export default async function UserPage({ params }) {
     const uri = params.uri;
     mongoose.connect(process.env.MONGO_URI);
     const page = await Page.findOne({ uri });
+    if (!page) {
+        // Handle the case where the page is not found
+        return <div>Page not found</div>;
+    }
+
     const user = await User.findOne({ email: page.owner });
+    if (!user) {
+        // Handle the case where the user is not found
+        return <div>User not found</div>;
+    }
     await Event.create({ uri: uri, page: uri, type: 'view' });
     return (
-        <div className="bg-blue-950 text-white min-h-screen">
+        <div className="bg-blue-500 text-white min-h-screen">
             <div
                 className="h-36 bg-gray-400 bg-cover bg-center"
                 style={
@@ -89,10 +98,10 @@ export default async function UserPage({ params }) {
                         key={link.url}
                         target="_blank"
                         ping={process.env.URL + 'api/click?url=' + btoa(link.url) + '&page=' + page.uri}
-                        className="bg-indigo-800 p-2 block flex"
+                        className="bg-white text-black p-2 block flex"
                         href={link.url}>
                         <div className="relative -left-4 overflow-hidden w-16">
-                            <div className="w-16 h-16 bg-blue-700 aspect-square relative flex items-center justify-center aspect-square">
+                            <div className="w-16 h-16 bg-blue-700 aspect-square relative flex items-center justify-center aspect-square rounded-l-md">
                                 {link.icon && (
                                     <Image
                                         className="w-full h-full object-cover"
@@ -107,7 +116,7 @@ export default async function UserPage({ params }) {
                         <div className="flex items-center justify-center shrink grow-0 overflow-hidden">
                             <div>
                                 <h3>{link.title}</h3>
-                                <p className="text-white/50 h-6 overflow-hidden">{link.subtitle}</p>
+                                <p className="text-gray-400 h-6 overflow-hidden">{link.subtitle}</p>
                             </div>
                         </div>
                     </Link>

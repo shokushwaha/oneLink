@@ -14,7 +14,7 @@ export default function AppSidebar() {
                 href={'/account'}
                 className={
                     "flex gap-4 p-2 "
-                    + (path === '/account' ? 'text-blue-500' : '')
+                    + (path === '/account' ? 'text-white font-extrabold' : '')
                 }>
                 <FontAwesomeIcon
                     fixedWidth={true}
@@ -27,7 +27,7 @@ export default function AppSidebar() {
                 href={'/analytics'}
                 className={
                     "flex gap-4 p-2 "
-                    + (path === '/analytics' ? 'text-blue-500' : '')
+                    + (path === '/analytics' ? 'text-white font-extrabold' : '')
                 }>
                 <FontAwesomeIcon
                     fixedWidth={true}
@@ -41,9 +41,9 @@ export default function AppSidebar() {
                 className={'flex gap-4 items-center text-gray-500 p-2'}
                 iconClasses={'w-6 h-6'}
             />
-            <Link href={'/'} className="flex items-center gap-2 text-xs text-gray-500 border-t pt-4">
+            <Link href={'/'} className="flex items-center gap-2 text-xs text-gray-300 border-t pt-4 mt-4">
                 <FontAwesomeIcon icon={faArrowLeft} className={'w-3 h-3'} />
-                <span>Back to website</span>
+                <span>Back to home</span>
             </Link>
         </nav>
     );

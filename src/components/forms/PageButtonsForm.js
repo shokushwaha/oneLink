@@ -36,7 +36,8 @@ function upperFirst(str) {
 
 export default function PageButtonsForm({ user, page }) {
 
-    const pageSavedButtonsKeys = Object.keys(page.buttons);
+
+    const pageSavedButtonsKeys = Object.keys(page?.buttons || {});
     const pageSavedButtonsInfo = pageSavedButtonsKeys
         .map(k => allButtons.find(b => b.key === k));
     const [activeButtons, setActiveButtons] = useState(pageSavedButtonsInfo);
@@ -71,7 +72,7 @@ export default function PageButtonsForm({ user, page }) {
                     setList={setActiveButtons}>
                     {activeButtons.map(b => (
                         <div key={b.key} className="mb-4 md:flex items-center">
-                            <div className="w-56 flex h-full text-gray-700 p-2 gap-2 items-center">
+                            <div className="w-56 flex h-full text-blue-500 p-2 gap-2 items-center font-bold">
                                 <FontAwesomeIcon
                                     icon={faGripLines}
                                     className="cursor-pointer text-gray-400 handle p-2" />
@@ -82,13 +83,13 @@ export default function PageButtonsForm({ user, page }) {
                                 <input
                                     placeholder={b.placeholder}
                                     name={b.key}
-                                    defaultValue={page.buttons[b.key]}
+                                    defaultValue={page.buttons ? page.buttons[b.key] : ""}
                                     type="text" style={{ marginBottom: '0' }} />
                                 <button
                                     onClick={() => removeButton(b)}
                                     type="button"
-                                    className="py-2 px-4  bg-gray-300 cursor-pointer">
-                                    <FontAwesomeIcon icon={faTrash} />
+                                    className="py-2 px-4  bg-red-400 cursor-pointer">
+                                    <FontAwesomeIcon icon={faTrash} className="text-white" />
                                 </button>
                             </div>
                         </div>

@@ -9,20 +9,20 @@ import Link from "next/link";
 export default async function Header() {
     const session = await getServerSession(authOptions);
     return (
-        <header className="bg-white border-b py-4">
+        <header className="bg-blue-500 border-b py-4">
             <div className="max-w-4xl flex justify-between mx-auto px-6">
                 <div className="flex items-center gap-6">
-                    <Link href={'/'} className="flex items-center gap-2 text-blue-500">
-                        <FontAwesomeIcon icon={faLink} className="text-blue-500" />
-                        <span className="font-bold">OneLink</span>
+                    <Link href={'/'} className="flex items-center gap-2 text-white">
+                        <FontAwesomeIcon icon={faLink} className="text-white" />
+                        <span className="font-extrabold text-2xl">OneLink</span>
                     </Link>
-                    <nav className="flex items-center gap-4 text-slate-500 text-sm">
+                    <nav className="flex items-center gap-4 text-gray-200 text-sm">
                         <Link href={'/about'}>About</Link>
                         <Link href={'/pricing'}>Pricing</Link>
                         <Link href={'/contact'}>Contact</Link>
                     </nav>
                 </div>
-                <nav className="flex items-center gap-4 text-sm text-slate-500">
+                <nav className="flex items-center gap-4 text-sm bg-white rounded-md pl-2">
                     {!!session && (
                         <>
                             <Link href={'/account'}>
@@ -34,7 +34,7 @@ export default async function Header() {
                     {!session && (
                         <>
                             <Link href={'/login'}>Sign In</Link>
-                            <Link href={'/login'}>Create Account</Link>
+
                         </>
                     )}
                 </nav>

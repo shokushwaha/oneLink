@@ -103,9 +103,9 @@ export default function PageLinksForm({ page, user }) {
                                         </label>
                                         <button
                                             onClick={() => removeLink(l.key)}
-                                            type="button" className="w-full bg-gray-300 py-2 px-3 mb-2 h-full flex gap-2 items-center justify-center">
-                                            <FontAwesomeIcon icon={faTrash} />
-                                            <span>Remove this link</span>
+                                            type="button" className="w-full bg-red-400 py-2 px-3 mb-2 h-full flex gap-2 items-center justify-center">
+                                            <FontAwesomeIcon icon={faTrash} className="text-white" />
+                                            <span className="text-white ">Remove this link</span>
                                         </button>
                                     </div>
                                 </div>
