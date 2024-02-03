@@ -17,12 +17,10 @@ export default async function Header() {
                         <span className="font-extrabold text-2xl">OneLink</span>
                     </Link>
                     <nav className="flex items-center gap-4 text-gray-200 text-sm">
-                        <Link href={'/about'}>About</Link>
-                        <Link href={'/pricing'}>Pricing</Link>
-                        <Link href={'/contact'}>Contact</Link>
+                        <Link href={'https://shocodev.vercel.app'} target="_blank">Contact</Link>
                     </nav>
                 </div>
-                <nav className="flex items-center gap-4 text-sm bg-white rounded-md pl-2">
+                <nav className="flex items-center gap-4 text-sm text-slate-500 bg-slate-100 rounded-md px-4">
                     {!!session && (
                         <>
                             <Link href={'/account'}>

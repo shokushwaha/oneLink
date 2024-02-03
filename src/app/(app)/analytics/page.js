@@ -13,7 +13,7 @@ import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "r
 
 
 export default async function AnalyticsPage() {
-    mongoose.connect(process.env.MONGO_URI);
+    mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI);
     const session = await getServerSession(authOptions);
     if (!session) {
         return redirect('/');

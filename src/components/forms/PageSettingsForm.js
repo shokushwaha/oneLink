@@ -22,7 +22,7 @@ export default function PageSettingsForm({ page, user }) {
             toast.success('Saved!');
         }
     }
-
+    console.log(user)
     async function handleCoverImageChange(ev) {
         await upload(ev, link => {
             setBgImage(link);

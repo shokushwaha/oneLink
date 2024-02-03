@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 
 export async function savePageSettings(formData) {
-    mongoose.connect(process.env.MONGO_URI);
+    mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI);
     const session = await getServerSession(authOptions);
     if (session) {
         const dataKeys = [
@@ -41,7 +41,7 @@ export async function savePageSettings(formData) {
 }
 
 export async function savePageButtons(formData) {
-    mongoose.connect(process.env.MONGO_URI);
+    mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI);
     const session = await getServerSession(authOptions);
     if (session) {
         const buttonsValues = {};
@@ -59,7 +59,7 @@ export async function savePageButtons(formData) {
 }
 
 export async function savePageLinks(links) {
-    mongoose.connect(process.env.MONGO_URI);
+    mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI);
     const session = await getServerSession(authOptions);
     if (session) {
         await Page.updateOne(
